@@ -1,0 +1,704 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Users - Laura Monsivais",
+        "description": "Consumption of services on users and their musical tastes",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000"
+        }
+    ],
+    "paths": {
+        "/api/v1/auth/login": {
+            "post": {
+                "summary": "Inicio de sesión",
+                "operationId": "1",
+                "tags": [
+                    "Login"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Correo electrónico",
+                                "value": "lauramonsivais1@hotmail.com"
+                            }
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "password": {
+                                "summary": "Contraseña",
+                                "value": "12345678"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful login."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/register": {
+            "post": {
+                "summary": "Crear usuarios",
+                "operationId": "1",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Nombre:",
+                                "value": "Laura"
+                            }
+                        }
+                    },
+                    {
+                        "name": "firstSurname",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Primer apellido",
+                                "value": "Monsivais"
+                            }
+                        }
+                    },
+                    {
+                        "name": "secondSurname",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Segundo apellido",
+                                "value": "Flores"
+                            }
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "number": {
+                                "summary": "Teléfono",
+                                "value": "4493862086"
+                            }
+                        }
+                    },
+                    {
+                        "name": "dateOfBirth",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Fecha de nacimiento",
+                                "value": "1997-04-19"
+                            }
+                        }
+                    },
+                    {
+                        "name": "gender",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Genero",
+                                "value": "Mujer"
+                            }
+                        }
+                    },
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Usuario",
+                                "value": "LauraMonsivais"
+                            }
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Correo electrónico",
+                                "value": "lauramonsivais1@hotmail.com"
+                            }
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "password": {
+                                "summary": "Contraseña",
+                                "value": "12345678"
+                            }
+                        }
+                    },
+                    {
+                        "name": "rol",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "password": {
+                                "summary": "Rol",
+                                "value": "Cliente"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User created successfully."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/users/{id}": {
+            "post": {
+                "summary": "Actualizar usuarios",
+                "operationId": "2",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "ID para actualizar",
+                                "value": "1"
+                            }
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Nombre:",
+                                "value": "Laura"
+                            }
+                        }
+                    },
+                    {
+                        "name": "firstSurname",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Primer apellido",
+                                "value": "Monsivais"
+                            }
+                        }
+                    },
+                    {
+                        "name": "secondSurname",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Segundo apellido",
+                                "value": "Flores"
+                            }
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "number": {
+                                "summary": "Teléfono",
+                                "value": "4493862086"
+                            }
+                        }
+                    },
+                    {
+                        "name": "dateOfBirth",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Fecha de nacimiento",
+                                "value": "1997-04-19"
+                            }
+                        }
+                    },
+                    {
+                        "name": "gender",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Genero",
+                                "value": "Mujer"
+                            }
+                        }
+                    },
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Usuario",
+                                "value": "LauraMonsivais"
+                            }
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Correo electrónico",
+                                "value": "lauramonsivais1@hotmail.com"
+                            }
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "password": {
+                                "summary": "Contraseña",
+                                "value": "12345678"
+                            }
+                        }
+                    },
+                    {
+                        "name": "rol",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "password": {
+                                "summary": "Rol",
+                                "value": "Cliente"
+                            }
+                        }
+                    },
+                    {
+                        "name": "isActive",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "Activo",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User updated successfully."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auth/users": {
+            "post": {
+                "summary": "Eliminar usuario",
+                "operationId": "3",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "ID para eliminar",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auth/users/{user_id}": {
+            "get": {
+                "summary": "Ver usuario",
+                "operationId": "4",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "user_id.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User information."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auth/music-store": {
+            "post": {
+                "summary": "Crear música",
+                "operationId": "1",
+                "tags": [
+                    "Music"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Nombre de la canción:",
+                                "value": "Children of the damned"
+                            }
+                        }
+                    },
+                    {
+                        "name": "author",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Autor",
+                                "value": "Iron Maiden"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Music created successfully."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auth/music/{id}": {
+            "post": {
+                "summary": "Actualizar música",
+                "operationId": "2",
+                "tags": [
+                    "Music"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "ID para actualizar",
+                                "value": "1"
+                            }
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Nombre de la canción:",
+                                "value": "Senjutsu"
+                            }
+                        }
+                    },
+                    {
+                        "name": "author",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "string": {
+                                "summary": "Autor",
+                                "value": "Iron Maiden"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Music updated successfully."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auth/music": {
+            "post": {
+                "summary": "Eliminar música",
+                "operationId": "3",
+                "tags": [
+                    "Music"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "ID para eliminar",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Music deleted successfully."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auth/music/{user_id}": {
+            "get": {
+                "summary": "Ver gustos musicales",
+                "operationId": "4",
+                "tags": [
+                    "Music"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "user_id.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Information on the users musical tastes."
+                    },
+                    "default": {
+                        "description": "Error."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Login"
+        },
+        {
+            "name": "Users",
+            "description": "API Endpoints of users"
+        },
+        {
+            "name": "Music",
+            "description": "API Endpoints of music"
+        }
+    ]
+}
